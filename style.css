@@ -1,0 +1,147 @@
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(to bottom, #e0f7fa, #b2ebf2);
+    margin: 0;
+    padding: 20px;
+    text-align: center;
+}
+
+h1 {
+    color: #00695c;
+    margin-bottom: 15px;
+}
+
+.menu {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+button {
+    background-color: #ffe082;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+button:hover {
+    background-color: #ffd54f;
+}
+
+.tower-container {
+    width: 250px;
+    height: 500px;
+    margin: 0 auto;
+    position: relative;
+}
+
+#icecream {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.cone {
+    width: 0;
+    height: 0;
+    border-left: 80px solid transparent;
+    border-right: 80px solid transparent;
+    border-top: 120px solid #d2691e;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.scoop {
+    width: 130px;
+    height: 70px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 100px 100px 30px 30px;
+    box-shadow: inset -5px -5px 0 rgba(0, 0, 0, 0.1);
+    animation: drop 0.3s ease-out, melt 3s infinite alternate;
+    z-index: 10;
+}
+
+.chocolate {
+    background: #4e342e;
+}
+
+.strawberry {
+    background: #f06292;
+}
+
+.vanilla {
+    background: #fff8dc;
+}
+
+.mint {
+    background: #98ff98;
+}
+
+.blueberry {
+    background: #7986cb;
+}
+
+@keyframes drop {
+    from {
+        transform: translateX(-50%) scaleY(0.5);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(-50%) scaleY(1);
+        opacity: 1;
+    }
+}
+
+@keyframes flicker {
+    0% {
+        transform: scale(1);
+    }
+
+    100% {
+        transform: scale(1.3);
+    }
+}
+
+@keyframes melt {
+    0% {
+        border-radius: 60% 60% 30% 30%;
+    }
+
+    100% {
+        border-radius: 60% 60% 50% 50%;
+        transform: translateX(-50%) translateY(3px);
+    }
+}
+
+.scoop::after {
+    content: '';
+    position: absolute;
+    width: 30px;
+    height: 20px;
+    background: inherit;
+    border-radius: 50%;
+    bottom: -8px;
+    left: 40px;
+    animation: drip 3s infinite alternate;
+}
+
+@keyframes drip {
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(4px);
+    }
+}
